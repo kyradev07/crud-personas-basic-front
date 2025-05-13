@@ -1,0 +1,24 @@
+<h1 class="m-5">Users List</h1>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Lastname</th>
+    <th>Age</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (user of users; track user.id) {
+      <tr>
+        <th>{{user.id}}</th>
+        <td>{{user.name}}</td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.age}}</td>
+        <td><i class="bi bi-trash-fill text-danger" (click)="deleteUser(user.id)"></i><i class="bi bi-pencil-square m-3" (click)="editUser(user.id)"></i></td>
+      </tr>
+    }
+  </tbody>
+</table>

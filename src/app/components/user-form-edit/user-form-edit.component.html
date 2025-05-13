@@ -1,0 +1,41 @@
+<h1 class="m-5">Edit User</h1>
+
+<form class="m-5" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" placeholder="Add name" formControlName="name">
+    @if (userForm.controls.name.invalid && (userForm.controls.name.touched || userForm.controls.name.dirty)) {
+      @if (userForm.controls.name.hasError('required')) {
+        <div id="error-name" class="form-text text-danger">Name is required</div>
+      }
+      @if (userForm.controls.name.hasError('minlength')) {
+        <div id="error-name" class="form-text text-danger">Name must be grater than 2 characters</div>
+      }
+    }
+  </div>
+  <div class="mb-3">
+    <label for="lastname" class="form-label">Lastname</label>
+    <input type="text" class="form-control" id="lastname" placeholder="Add lastname" formControlName="lastname">
+    @if (userForm.controls.lastname.invalid && (userForm.controls.lastname.touched || userForm.controls.lastname.dirty)) {
+      @if (userForm.controls.lastname.hasError('required')) {
+        <div id="error-name" class="form-text text-danger">Lastname is required</div>
+      }
+      @if (userForm.controls.lastname.hasError('minlength')) {
+        <div id="error-name" class="form-text text-danger">Lastname must be grater than 2 characters</div>
+      }
+    }
+  </div>
+  <div class="mb-3">
+    <label for="age" class="form-label">Age</label>
+    <input type="number" class="form-control" id="age" placeholder="Add age" formControlName="age">
+    @if (userForm.controls.age.invalid && (userForm.controls.age.touched || userForm.controls.age.dirty)) {
+      @if (userForm.controls.age.hasError('required')) {
+        <div id="error-name" class="form-text text-danger">Age is required</div>
+      }
+      @if (userForm.controls.age.hasError('min')) {
+        <div id="error-name" class="form-text text-danger">Age must be grater than 0</div>
+      }
+    }
+  </div>
+  <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+</form>
