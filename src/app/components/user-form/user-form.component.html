@@ -1,4 +1,8 @@
-<h1 class="m-5">Add User</h1>
+@if (isCreate) {
+  <h1 class="m-5">Crear Usuario</h1>
+} @else {
+  <h1 class="m-5">Editar Usuario</h1>
+}
 
 <form class="m-5" [formGroup]="userForm" (ngSubmit)="onSubmit()">
   <div class="mb-3">
@@ -37,5 +41,9 @@
       }
     }
   </div>
-  <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+  @if (isCreate) {
+    <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary">Agregar Usuario</button>
+  } @else {
+    <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary">Editar Usuario</button>
+  }
 </form>

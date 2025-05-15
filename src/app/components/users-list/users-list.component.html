@@ -1,13 +1,13 @@
-<h1 class="m-5">Users List</h1>
+<h1 class="m-5">Lista de Usuarios</h1>
 
-<table class="table">
+<table class="table table-hover table-bordered tabla">
   <thead>
   <tr>
     <th>Id</th>
-    <th>Name</th>
-    <th>Lastname</th>
-    <th>Age</th>
-    <th>Actions</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Edad</th>
+    <th>Acciones</th>
   </tr>
   </thead>
   <tbody>
@@ -17,7 +17,16 @@
         <td>{{user.name}}</td>
         <td>{{user.lastname}}</td>
         <td>{{user.age}}</td>
-        <td><i class="bi bi-trash-fill text-danger" (click)="deleteUser(user.id)"></i><i class="bi bi-pencil-square m-3" (click)="editUser(user.id)"></i></td>
+        <td>
+          <div class="icon-tooltip-wrapper">
+            <i class="bi bi-trash-fill text-danger" (click)="deleteUser(user.id)"></i>
+            <span class="tooltip-text">Eliminar</span>
+          </div>
+          <div class="icon-tooltip-wrapper">
+            <i class="bi bi-pencil-square m-3" (click)="editUser(user.id)"></i>
+            <span class="tooltip-text">Editar</span>
+          </div>
+        </td>
       </tr>
     }
   </tbody>
