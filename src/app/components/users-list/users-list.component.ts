@@ -31,20 +31,20 @@ export class UsersListComponent {
 
   deleteUser(id: number | undefined) {
     Swal.fire({
-      title: "Are you sure to delete this user?",
-      text: "You won't be able to revert this!",
+      title: "¿Está seguro de eliminar este usuario?",
+      text: "¡No puedes revertir esto!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Si, eliminar!"
     }).then((result) => {
       if (result.isConfirmed) {
         this.userService.delete(id).subscribe({
           next: () => {
             Swal.fire({
-              title: "Deleted!",
-              text: `User ${id} has been deleted.`,
+              title: "¡Eliminado!",
+              text: `Usuario con ID ${id} ha sido eliminado exitosamente.`,
               icon: "success"
             });
             this.loadUsers();

@@ -72,7 +72,7 @@ export class UserFormComponent {
       this.userService.addUser(user).subscribe({
         next: (user: User) => {
           Swal.fire({
-            title: "Add!",
+            title: "¡Crear!",
             text: `Usuario ${user.name} creado exitosamente.`,
             icon: "success"
           });
@@ -89,7 +89,7 @@ export class UserFormComponent {
       this.userService.updateUser(+this.idUser, user).subscribe({
         next: (user: User) => {
           Swal.fire({
-            title: "Add!",
+            title: "¡Actualizar!",
             text: `Usuario con ID ${user.id} actualizado exitosamente.`,
             icon: "success"
           });
